@@ -81,7 +81,9 @@
        (with-syntax ([(branch ...) (d->stx (map compile-cond-branch c-bs) l)])
          #`(r:cond branch ...)))]
 
-    [(s-try l try (s-bind l2 id ann) catch)
+    ;; Temporarily commenting since Whalesong doesn't have with-handlers
+    ;; yet.
+    #;[(s-try l try (s-bind l2 id ann) catch)
      (attach l
        #`(r:with-handlers
             ([p:exn:fail:pyret?
